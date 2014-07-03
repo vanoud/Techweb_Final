@@ -1,0 +1,24 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Tache creation</h1>
+
+    <form action="{{ path('tache_create', {'id': id }) }}" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+        <p>
+            <button type="submit">Create</button>
+        </p>
+    </form>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('tache') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+<script>$("form input.date").datepicker({
+    dateFormat: 'mm/dd/yy', 
+    firstDay:1
+}).attr("readonly","readonly");</script>
+{% endblock %}
